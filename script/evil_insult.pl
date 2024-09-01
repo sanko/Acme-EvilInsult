@@ -8,7 +8,7 @@ use open qw[:std :encoding(UTF-8)];
 # Test
 #~ @ARGV = qw[];
 #~ @ARGV = qw[-json];
-#~ @ARGV = qw[-lang fr];
+#~ @ARGV = qw[-language fr];
 #~ @ARGV = qw[-h];
 #
 my $raw = 0;

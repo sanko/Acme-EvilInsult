@@ -8,8 +8,6 @@ use Acme::EvilInsult qw[:all];
 imported_ok qw[insult];
 #
 ok +insult(), 'stringify';
-
-#~ , 'insult in french';
 #
 subtest 'evil insults in different languages' => sub {
     is Acme::EvilInsult::insult(), hash {
