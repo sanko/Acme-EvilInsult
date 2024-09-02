@@ -6,17 +6,16 @@ package Acme::EvilInsult 1.0 {    # https://kk-advice.koyeb.app/api
     use parent 'Exporter';
     our %EXPORT_TAGS = ( all => [ our @EXPORT_OK = qw[insult] ] );
     #
-    my $api = URI->new('https://evilinsult.com/generate_insult.php?type=json');
     use overload '""' => sub ( $s, $u, $b ) { $s->{insult} };
     #
     sub _http (%params) {
         state $http
             //= HTTP::Tiny->new( default_headers => { Accept => 'application/json' }, agent => sprintf '%s/%.2f ', __PACKAGE__, our $VERSION );
-        my $hey = $api->clone;
+        state $api //= URI->new('https://evilinsult.com/generate_insult.php');
 
         # API accepts languages as a param named 'lang' but returns the language in a field called 'language'... why?
-        $hey->query_form( type => 'json', ( defined $params{language} ? ( lang => delete $params{language} ) : () ), %params );
-        my $res = $http->get( $hey->as_string );    # {success} is true even when advice is not found but we'll at least know when we have valid JSON
+        $api->query_form( type => 'json', ( defined $params{language} ? ( lang => delete $params{language} ) : () ), %params );
+        my $res = $http->get($api);    # {success} is true even when advice is not found but we'll at least know when we have valid JSON
         $res->{success} ? decode_json( $res->{content} ) : ();
     }
     #
