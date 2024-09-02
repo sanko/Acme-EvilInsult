@@ -3,14 +3,14 @@ use open qw[:std :encoding(UTF-8)];
 use experimental 'for_list';
 #
 use lib '../lib', 'lib';
-use Acme::EvilInsult qw[:all];
+use Acme::Insult::Evil qw[:all];
 #
 imported_ok qw[insult];
 #
 ok +insult(), 'stringify';
 #
 subtest 'evil insults in different languages' => sub {
-    is Acme::EvilInsult::insult(), hash {
+    is Acme::Insult::Evil::insult(), hash {
         field active    => number_ge 0;
         field comment   => D();
         field created   => D();            # ISO date
@@ -29,7 +29,7 @@ subtest 'evil insults in different languages' => sub {
         hi => 'Hindi',
         tr => 'Turkish'                    # That's enough
     ) {
-        is Acme::EvilInsult::insult( language => $code ), hash {
+        is Acme::Insult::Evil::insult( language => $code ), hash {
             field active    => number_ge 0;
             field comment   => D();
             field created   => D();            # ISO date

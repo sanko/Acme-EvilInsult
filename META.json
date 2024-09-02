@@ -13,7 +13,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : 2
    },
-   "name" : "Acme-EvilInsult",
+   "name" : "Acme-Insult-Evil",
    "no_index" : {
       "directory" : [
          "t",
@@ -82,13 +82,13 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/sanko/Acme-EvilInsult/issues"
+         "web" : "https://github.com/sanko/Acme-Insult-Evil/issues"
       },
-      "homepage" : "https://github.com/sanko/Acme-EvilInsult",
+      "homepage" : "https://github.com/sanko/Acme-Insult-Evil",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/sanko/Acme-EvilInsult.git",
-         "web" : "https://github.com/sanko/Acme-EvilInsult"
+         "url" : "https://github.com/sanko/Acme-Insult-Evil.git",
+         "web" : "https://github.com/sanko/Acme-Insult-Evil"
       }
    },
    "version" : "1.0",

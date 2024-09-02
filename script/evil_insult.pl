@@ -1,6 +1,6 @@
 use lib '../lib';
 use v5.36;
-use Acme::EvilInsult;
+use Acme::Insult::Evil;
 use Getopt::Long;
 use Pod::Usage;
 use open qw[:std :encoding(UTF-8)];
@@ -17,7 +17,7 @@ sub _echo ($slip) {    # JSON::Tiny is loaded in Acme::Free::Advice::Unsolicited
     $raw ? JSON::Tiny::encode_json( {%$slip} ) : $slip;
 }
 GetOptions( \my %h, 'language=s', 'help' => sub { pod2usage( -exitval => 1 ) }, 'json!' => \$raw );
-my $shade = Acme::EvilInsult::insult(%h);
+my $shade = Acme::Insult::Evil::insult(%h);
 exit !( $shade ? say _echo($shade) : !say( $raw ? 'null' : '' ) );
 __END__
 
@@ -40,7 +40,7 @@ evil_insult - Generate evil insults on the terminal
 
 =head1 DESCRIPTION
 
-This script wraps Acme::EvilInsult.
+This script wraps Acme::Insult::Evil.
 
 =head1 LICENSE & LEGAL
 
